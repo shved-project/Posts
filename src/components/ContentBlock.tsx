@@ -1,11 +1,19 @@
 import {ReactNode} from "react";
+import {motion} from "motion/react";
+import {showToUpVariant, staggerVariant} from "../animations/variants";
 
 const ContentBlock = ({children, title}: {children: ReactNode; title?: string}) => {
 	return (
-		<>
-			{title && <h1 className='text-4xl font-medium'>{title}</h1>}
-			<section className='p-5 bg-white rounded-lg mt-8 w-1/1'>{children}</section>
-		</>
+		<motion.div variants={staggerVariant} animate='visible' initial='hidden'>
+			{title && (
+				<motion.h1 className='text-4xl font-medium' variants={showToUpVariant}>
+					{title}
+				</motion.h1>
+			)}
+			<motion.section className='p-5 bg-white rounded-lg mt-8 w-1/1' variants={showToUpVariant}>
+				{children}
+			</motion.section>
+		</motion.div>
 	);
 };
 
