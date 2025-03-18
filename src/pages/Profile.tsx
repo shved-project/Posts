@@ -51,19 +51,17 @@ const Profile = () => {
 					Выйти
 				</Button>
 			</ContentBlock>
-			{showModal && (
-				<Modal setShowModal={setShowModal}>
-					<p className='text-lg'>Вы действительно хотите выйти?</p>
-					<div className='flex items-center justify-end mt-10 gap-4'>
-						<Button bgColor='blue' type='button' onClick={() => setShowModal(false)}>
-							Отменить
-						</Button>
-						<Button bgColor='red' type='button' onClick={handleExit}>
-							Выйти
-						</Button>
-					</div>
-				</Modal>
-			)}
+			<Modal showModal={showModal} setShowModal={setShowModal}>
+				<p className='text-lg'>Вы действительно хотите выйти?</p>
+				<div className='flex items-center justify-end mt-10 gap-4'>
+					<Button bgColor='blue' type='button' onClick={() => setShowModal(false)}>
+						Отменить
+					</Button>
+					<Button bgColor='red' type='button' onClick={handleExit}>
+						Выйти
+					</Button>
+				</div>
+			</Modal>
 		</>
 	);
 };

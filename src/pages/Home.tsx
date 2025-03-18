@@ -104,17 +104,15 @@ const Home = () => {
 					{error}
 				</ErrorGetPosts>
 			)}
-			{showModal && (
-				<Modal setShowModal={setShowModal} title='Новый пост'>
-					<CreatePostForm
-						posts={posts}
-						setPosts={setPosts}
-						addOptimisticPost={addOptimisticPost}
-						setShowModal={setShowModal}
-						setEmpty={setEmpty}
-					/>
-				</Modal>
-			)}
+			<Modal showModal={showModal} setShowModal={setShowModal} title='Новый пост'>
+				<CreatePostForm
+					posts={posts}
+					setPosts={setPosts}
+					addOptimisticPost={addOptimisticPost}
+					setShowModal={setShowModal}
+					setEmpty={setEmpty}
+				/>
+			</Modal>
 		</>
 	);
 };
