@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Posts} from "../types/postsType";
 import {motion} from "motion/react";
+import {showToUpVariant} from "../animations/variants";
 
 type PostProps = Omit<Posts, "id">;
 
@@ -12,8 +13,9 @@ const Post = ({avatar, name, postImage, text, isPending}: PostProps) => {
 	return (
 		<motion.article
 			className='bg-gray-100 rounded-lg'
-			animate={isPending && {opacity: [1, 0.4, 1]}}
-			transition={{duration: 1, ease: "linear", repeat: Infinity}}
+			variants={!isPending ? showToUpVariant : undefined}
+			animate={isPending ? {opacity: [1, 0.4, 1]} : undefined}
+			transition={isPending ? {duration: 1, ease: "linear", repeat: Infinity} : undefined}
 		>
 			<header className='p-3'>
 				<div className='flex items-center gap-2'>
