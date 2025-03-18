@@ -58,7 +58,7 @@ export default function App() {
 						<Route path='auth' element={<Auth />} />
 						<Route path='*' element={<NotFound />} />
 					</Routes>
-					{message && <Message messageText={message.messageText} type={message.type} />}
+					<Message />
 				</div>
 			)}
 		</>

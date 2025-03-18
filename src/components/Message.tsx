@@ -1,11 +1,12 @@
+import {duration} from "../animations/variables";
 import useMessageContext from "../hooks/useMessageContext";
-import {messageType} from "../types/messageType";
+import {AnimatePresence, motion} from "motion/react";
 
-const Message = ({messageText, type}: messageType) => {
+const Message = () => {
 	const {message} = useMessageContext();
 
 	const bgMessage = () => {
-		switch (type) {
+		switch (message?.type) {
 			case "success":
 				return "bg-green-400";
 			case "neutral":
@@ -15,17 +16,21 @@ const Message = ({messageText, type}: messageType) => {
 		}
 	};
 
-	if (message) {
-		return (
-			<div
-				className={`fixed bottom-8 left-[50%] translate-[-50%] py-3 px-10 rounded-lg shadow-lg text-white max-w-100 text-center ${bgMessage()}`}
-			>
-				{messageText}
-			</div>
-		);
-	} else {
-		return null;
-	}
+	return (
+		<AnimatePresence>
+			{message && (
+				<motion.div
+					className={`fixed bottom-8 left-[50%] translate-[-50%] py-3 px-10 rounded-lg shadow-lg text-white max-w-100 text-center ${bgMessage()}`}
+					animate={{y: 0}}
+					initial={{y: 500}}
+					transition={{duration: duration, type: "spring", stiffness: 260, damping: 20}}
+					exit={{y: 500}}
+				>
+					{message.messageText}
+				</motion.div>
+			)}
+		</AnimatePresence>
+	);
 };
 
 export default Message;
