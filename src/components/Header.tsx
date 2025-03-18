@@ -4,12 +4,19 @@ import {Link} from "react-router";
 import BaseLink from "./BaseLink";
 import useAuthContext from "../hooks/useAuthContext";
 import profileIcon from "../icons/profile.svg";
+import {motion} from "motion/react";
+import {duration} from "../animations/variables";
 
 const Header = () => {
 	const {user} = useAuthContext();
 
 	return (
-		<header className='flex justify-between px-8 py-3 max-md:px-2 fixed w-1/1 top-0 left-0 shadow-lg bg-white z-50'>
+		<motion.header
+			className='flex justify-between px-8 py-3 max-md:px-2 fixed w-1/1 top-0 left-0 shadow-lg bg-white z-50'
+			animate={{y: 0}}
+			initial={{y: "-100%"}}
+			transition={{duration: duration, delay: 0.2}}
+		>
 			<Logo size='small' />
 			<div className='flex items-center gap-5'>
 				{user ? (
@@ -30,7 +37,7 @@ const Header = () => {
 					</>
 				)}
 			</div>
-		</header>
+		</motion.header>
 	);
 };
 
