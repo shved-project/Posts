@@ -3,6 +3,8 @@ import Button from "./Button";
 import ContentBlock from "./ContentBlock";
 import Logo from "./Logo";
 import useInvalidValueFormContext from "../hooks/useInvalidValueFormContext";
+import {motion} from "motion/react";
+import {showToUpVariant, staggerVariant} from "../animations/variants";
 
 type FormPageProps = {
 	children: ReactNode;
@@ -24,10 +26,19 @@ const FormPage = ({children, title, buttonText, isPending, formAction}: FormPage
 	}, []);
 
 	return (
-		<div className='min-h-[100vh] flex flex-col items-center justify-center py-5'>
-			<Logo size='large' />
-			<h1 className='text-4xl font-medium mt-7 mb-2'>{title}</h1>
-			<div className='w-120'>
+		<motion.div
+			className='min-h-[100vh] flex flex-col items-center justify-center py-5'
+			variants={staggerVariant}
+			animate='visible'
+			initial='hidden'
+		>
+			<motion.div variants={showToUpVariant}>
+				<Logo size='large' />
+			</motion.div>
+			<motion.h1 className='text-4xl font-medium mt-7 mb-2' variants={showToUpVariant}>
+				{title}
+			</motion.h1>
+			<motion.div className='w-120' variants={showToUpVariant}>
 				<ContentBlock>
 					<form action={formAction}>
 						<div className='flex flex-col gap-4 mb-8'>{children}</div>
@@ -41,8 +52,8 @@ const FormPage = ({children, title, buttonText, isPending, formAction}: FormPage
 						</Button>
 					</form>
 				</ContentBlock>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 
