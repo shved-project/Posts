@@ -13,6 +13,7 @@ import useMessageContext from "../hooks/useMessageContext";
 import Modal from "../components/Modal";
 import CreatePostForm from "../components/CreatePostForm";
 import PostsList from "../components/PostsList";
+import {AnimatePresence} from "motion/react";
 
 const Home = () => {
 	const {user} = useAuthContext();
@@ -104,15 +105,19 @@ const Home = () => {
 					{error}
 				</ErrorGetPosts>
 			)}
-			<Modal showModal={showModal} setShowModal={setShowModal} title='Новый пост'>
-				<CreatePostForm
-					posts={posts}
-					setPosts={setPosts}
-					addOptimisticPost={addOptimisticPost}
-					setShowModal={setShowModal}
-					setEmpty={setEmpty}
-				/>
-			</Modal>
+			<AnimatePresence>
+				{showModal && (
+					<Modal setShowModal={setShowModal} title='Новый пост'>
+						<CreatePostForm
+							posts={posts}
+							setPosts={setPosts}
+							addOptimisticPost={addOptimisticPost}
+							setShowModal={setShowModal}
+							setEmpty={setEmpty}
+						/>
+					</Modal>
+				)}
+			</AnimatePresence>
 		</>
 	);
 };
