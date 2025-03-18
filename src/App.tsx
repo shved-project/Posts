@@ -14,7 +14,7 @@ import useMessageContext from "./hooks/useMessageContext";
 import MyPosts from "./pages/MyPosts";
 
 export default function App() {
-	const {message, showMessage} = useMessageContext();
+	const {showMessage} = useMessageContext();
 	const {setUser} = useAuthContext();
 	const [loading, setLoading] = useState<boolean>(true);
 
