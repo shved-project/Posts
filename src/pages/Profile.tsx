@@ -33,10 +33,10 @@ const Profile = () => {
 			<title>My profile</title>
 			<ContentBlock title='Мой профиль'>
 				<div className='flex items-center gap-4 mb-5'>
-					<div className='rounded-full w-max overflow-hidden'>
-						<img src={user?.avatar} alt='Аватар' width='120' height='120' />
+					<div className='rounded-full w-max overflow-hidden shrink-0'>
+						<img src={user?.avatar} alt='Аватар' width='120' height='120' className='max-sm:w-15' />
 					</div>
-					<div className='text-3xl font-bold'>
+					<div className='text-3xl font-bold max-sm:text-xl'>
 						<p>
 							{user?.firstName} {user?.lastName}
 						</p>
