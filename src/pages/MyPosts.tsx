@@ -24,7 +24,7 @@ const MyPosts = () => {
 		<>
 			<title>My posts</title>
 			{user?.myPosts ? (
-				<ContentBlock title='Мои посты'>
+				<ContentBlock title='Мои посты' className='max-sm:px-0'>
 					<PostsList posts={user!.myPosts} />
 				</ContentBlock>
 			) : (

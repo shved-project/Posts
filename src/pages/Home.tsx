@@ -73,7 +73,7 @@ const Home = () => {
 			{loading && <Loading />}
 			{optimisticPosts && (
 				<>
-					<ContentBlock title='Посты'>
+					<ContentBlock title='Посты' className='max-sm:px-0'>
 						<Button type='button' bgColor='green' className='mb-7 max-sm:ml-3' onClick={handleCreatePost}>
 							Создать пост
 						</Button>
