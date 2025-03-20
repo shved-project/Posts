@@ -27,7 +27,7 @@ const FormPage = ({children, title, buttonText, isPending, formAction}: FormPage
 
 	return (
 		<motion.div
-			className='min-h-[100vh] flex flex-col items-center justify-center py-5'
+			className='min-h-[100vh] flex flex-col items-center justify-center py-5 px-2'
 			variants={staggerVariant}
 			animate='visible'
 			initial='hidden'
@@ -35,10 +35,10 @@ const FormPage = ({children, title, buttonText, isPending, formAction}: FormPage
 			<motion.div variants={showToUpVariant}>
 				<Logo size='large' />
 			</motion.div>
-			<motion.h1 className='text-4xl font-medium mt-7 mb-2' variants={showToUpVariant}>
+			<motion.h1 className='text-4xl font-medium mt-7 mb-7 max-sm:text-3xl' variants={showToUpVariant}>
 				{title}
 			</motion.h1>
-			<motion.div className='w-120' variants={showToUpVariant}>
+			<motion.div className='w-1/1 max-w-120' variants={showToUpVariant}>
 				<ContentBlock>
 					<form action={formAction}>
 						<div className='flex flex-col gap-4 mb-8'>{children}</div>
