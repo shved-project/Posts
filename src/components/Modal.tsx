@@ -40,14 +40,14 @@ const Modal = ({children, setShowModal, title}: ModalProps) => {
 
 	return createPortal(
 		<motion.div
-			className='fixed inset-0 z-50 overflow-auto'
+			className='fixed inset-0 z-50 overflow-auto px-2'
 			onClick={handleOverlayClick}
 			animate={{backgroundColor: "rgba(106, 114, 130, 0.75)", backdropFilter: "blur(15px)"}}
 			transition={{duration: duration}}
 			exit={{backgroundColor: "rgba(0, 0, 0, 0)", backdropFilter: "blur(0px)"}}
 		>
 			<motion.div
-				className='relative w-1/1 max-w-150 bg-white mx-auto my-[5%] p-10 pt-18 rounded-2xl'
+				className='relative w-1/1 max-w-150 bg-white mx-auto my-[5%] p-10 pt-18 rounded-2xl max-sm:px-4 max-sm:py-16'
 				animate={{opacity: 1, scale: 1}}
 				initial={{opacity: 0, scale: 0.98}}
 				transition={{duration: duration}}
@@ -59,7 +59,7 @@ const Modal = ({children, setShowModal, title}: ModalProps) => {
 					className='cursor-pointer absolute top-5 right-5'
 					onClick={() => setShowModal(false)}
 				>
-					<img src={closeImg} alt='Закрыть окно' width='25' height='25' />
+					<img src={closeImg} alt='Закрыть окно' width='25' height='25' className='max-sm:w-5' />
 				</button>
 				<div>{children}</div>
 			</motion.div>

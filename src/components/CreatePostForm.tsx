@@ -194,7 +194,7 @@ const CreatePostForm = ({posts, setPosts, addOptimisticPost, setShowModal, setEm
 	return (
 		<form action={addPost}>
 			<div
-				className={`flex flex-col items-center justify-center relative border-2 border-dashed aspect-[16/9] cursor-pointer ${colorDragNDropBlock[dragNDropState]}`}
+				className={`flex flex-col items-center justify-center relative border-2 border-dashed aspect-[16/9] cursor-pointer p-4 ${colorDragNDropBlock[dragNDropState]}`}
 			>
 				<div
 					className='absolute inset-0'
@@ -210,6 +210,7 @@ const CreatePostForm = ({posts, setPosts, addOptimisticPost, setShowModal, setEm
 					height='150'
 					viewBox='0 0 512.000000 512.000000'
 					preserveAspectRatio='xMidYMid meet'
+					className='max-sm:w-27 max-sm:h-auto'
 				>
 					<metadata>Created by potrace 1.16, written by Peter Selinger 2001-2019</metadata>
 					<g
@@ -298,7 +299,7 @@ l-6 -48 -434 0 c-276 0 -453 -4 -487 -11 -188 -39 -362 -200 -423 -392 l-25
 					label='Текст поста'
 					name='postText'
 					autoFocus
-					className='resize-none aspect-[16/5]'
+					className='resize-none aspect-[16/5] max-sm:aspect-[16/9]'
 					placeholder='Напишите здесь что-нибудь'
 					onKeyDown={(event) => {
 						if (event.key === "Enter") {
@@ -312,7 +313,7 @@ l-6 -48 -434 0 c-276 0 -453 -4 -487 -11 -188 -39 -362 -200 -423 -392 l-25
 					Отменить
 				</Button>
 				<Button bgColor='green' type='submit' ref={submitButtonRef}>
-					Создать новый пост
+					Создать
 				</Button>
 			</div>
 		</form>
