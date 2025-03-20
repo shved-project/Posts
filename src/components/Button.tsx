@@ -19,7 +19,7 @@ const Button = ({children, bgColor, type, className, disabled, onClick, ref}: Bu
 
 	return (
 		<button
-			className={`${colorVariants[bgColor]} ${className} block px-4 py-1.5 text-white text-md rounded-lg cursor-pointer transition-colors duration-200`}
+			className={`${colorVariants[bgColor]} ${className} block px-4 py-1.5 text-white rounded-lg cursor-pointer transition-colors duration-200`}
 			type={type}
 			disabled={disabled}
 			onClick={onClick}

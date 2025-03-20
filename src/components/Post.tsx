@@ -12,7 +12,7 @@ const Post = ({avatar, name, postImage, text, isPending}: PostProps) => {
 
 	return (
 		<motion.article
-			className='bg-gray-100 rounded-lg'
+			className='bg-gray-100 rounded-lg max-sm:rounded-none'
 			variants={!isPending ? showToUpVariant : undefined}
 			animate={isPending ? {opacity: [1, 0.4, 1]} : undefined}
 			transition={isPending ? {duration: 1, ease: "linear", repeat: Infinity} : undefined}
@@ -20,7 +20,7 @@ const Post = ({avatar, name, postImage, text, isPending}: PostProps) => {
 			<header className='p-3'>
 				<div className='flex items-center gap-2'>
 					<div className='rounded-full overflow-hidden'>
-						<img src={avatar} alt='avatar' width='50' height='50' />
+						<img src={avatar} alt='avatar' width='50' height='50' className='max-sm:w-10' />
 					</div>
 					<p className='font-medium text-black'>{name}</p>
 				</div>

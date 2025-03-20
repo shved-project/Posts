@@ -74,7 +74,7 @@ const Home = () => {
 			{optimisticPosts && (
 				<>
 					<ContentBlock title='Посты'>
-						<Button type='button' bgColor='green' className='mb-7' onClick={handleCreatePost}>
+						<Button type='button' bgColor='green' className='mb-7 max-sm:ml-3' onClick={handleCreatePost}>
 							Создать пост
 						</Button>
 						<PostsList posts={optimisticPosts} />

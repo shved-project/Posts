@@ -16,10 +16,10 @@ const ErrorGetPosts = ({children, img, alt = ""}: ErrorGetPostsType) => {
 				alt={alt}
 				width='120'
 				height='120'
-				className='block mx-auto mb-3'
+				className='block mx-auto mb-3 max-sm:w-25'
 				variants={showToUpVariant}
 			/>
-			<motion.h1 className='text-xl font-bold' variants={showToUpVariant}>
+			<motion.h1 className='text-2xl font-bold max-sm:text-xl' variants={showToUpVariant}>
 				{children}
 			</motion.h1>
 		</motion.div>

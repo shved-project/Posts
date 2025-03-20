@@ -47,7 +47,7 @@ export default function App() {
 					<Loading />
 				</div>
 			) : (
-				<div className='text-md text-gray-700 bg-gray-100 relative'>
+				<div className='max-sm:text-base text-xl text-gray-700 bg-gray-100 relative'>
 					<Routes>
 						<Route path='/' element={<BasePage />}>
 							<Route index element={<Home />} />
