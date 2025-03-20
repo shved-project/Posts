@@ -2,7 +2,7 @@ import {ReactNode} from "react";
 import {motion} from "motion/react";
 import {showToUpVariant, staggerVariant} from "../animations/variants";
 
-const ContentBlock = ({children, title}: {children: ReactNode; title?: string}) => {
+const ContentBlock = ({children, title, className}: {children: ReactNode; title?: string; className?: string}) => {
 	return (
 		<motion.div variants={staggerVariant} animate='visible' initial='hidden'>
 			{title && (
@@ -10,7 +10,7 @@ const ContentBlock = ({children, title}: {children: ReactNode; title?: string}) 
 					{title}
 				</motion.h1>
 			)}
-			<motion.section className='p-5 bg-white rounded-lg mt-8 w-1/1 max-sm:px-0' variants={showToUpVariant}>
+			<motion.section className={`p-5 bg-white rounded-lg mt-8 w-1/1 ${className}`} variants={showToUpVariant}>
 				{children}
 			</motion.section>
 		</motion.div>
