@@ -6,11 +6,11 @@ const ContentBlock = ({children, title, className}: {children: ReactNode; title?
 	return (
 		<motion.div variants={staggerVariant} animate='visible' initial='hidden'>
 			{title && (
-				<motion.h1 className='text-4xl font-medium max-sm:text-3xl' variants={showToUpVariant}>
+				<motion.h1 className='text-4xl font-medium mb-9 max-sm:text-3xl' variants={showToUpVariant}>
 					{title}
 				</motion.h1>
 			)}
-			<motion.section className={`p-5 bg-white rounded-lg mt-8 w-1/1 ${className}`} variants={showToUpVariant}>
+			<motion.section className={`p-5 bg-white rounded-lg w-1/1 ${className}`} variants={showToUpVariant}>
 				{children}
 			</motion.section>
 		</motion.div>
